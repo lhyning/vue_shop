@@ -41,9 +41,6 @@
                 <router-view></router-view>
             </el-main>
         </el-container>
-    <div>
-        <el-button type="info" @click="logout">退出</el-button>
-    </div>
     </el-container>
 </template>
 
