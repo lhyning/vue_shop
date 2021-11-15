@@ -142,16 +142,7 @@ export default {
                 pagenum: 1,
                 pagesize: 2
             },
-            userList: [{
-                id: 502,
-                username: 'root',
-                mobile: '12332145665',
-                type: 1,
-                email: '123Admin@163.com',
-                create_time: '2017-11-09T20:36:26.000Z',
-                mg_state: true, // 当前用户的状态
-                role_name: '超级管理员'
-            }],
+            userList: [],
             total: 0,
             // 控制添加用户的对话框显示与隐藏
             addDialogVisible: false,
@@ -200,7 +191,7 @@ export default {
     },
     methods: {
         async getUserList() {
-            const { data: res } = await this.$http.get('users', { parmas: this.queryInfo })
+            const { data: res } = await this.$http.get('users', { params: this.queryInfo })
             console.log(res)
             if (res.meta.status !== 200) return this.$message.error(res.meta.msg + '; 获取用户列表失败！')
             this.userList = res.data.users
